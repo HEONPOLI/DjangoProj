@@ -2,6 +2,7 @@ from todolist.forms import TaskForm
 from django.shortcuts import render,HttpResponse,redirect
 from .forms import TaskForm
 from .models import Task
+from .mkgantt import mk_gantt, create_gantt
 # Create your views here.
 
 def index(request):
@@ -29,3 +30,14 @@ def delete_task(request,pk):
     task=Task.objects.get(id=pk)
     task.delete()
     return redirect("index")
+
+def gantt_task(request):
+    gantt_tasks = Task.objects.all()
+    gantt_tasks_list=list(gantt_tasks)
+    task_project = []
+    for task in gantt_tasks_list:
+        task_project.append(mk_gantt(str(task)))
+    create_gantt(task_project)
+    # print(gantt_tasks_list)
+    # print(1)
+    return render(request,"gantt_task.html",{"tasks":gantt_tasks})
