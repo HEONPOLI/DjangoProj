@@ -10,10 +10,9 @@ Gantt -
         <h1 class="text-center"><b>✔Gantt Chart✔</b></h1>
         <a href="{% url 'index' %}" class="btn btn-primary">Back to list</a>
     </div>
+    <h2 class="text-center"><b>Scroll right to check schedule</b></h2>
     <div class="card-body">
-        <div class="imgScrollBox">
-        <img class="card-img" src="{% static 'Project_gantt.svg' %}">
-        </div>
+        <img src="{% static 'Project_gantt.svg' %}">
             {% for task in tasks %}
             <li class="list-group-item list-group-item-action">
                 <b>{{task.title}}</b>

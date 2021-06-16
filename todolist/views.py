@@ -37,7 +37,13 @@ def gantt_task(request):
     gantt_tasks_list=list(gantt_tasks)
     task_project = []
     for task in gantt_tasks_list:
-        task_project.append(mk_gantt(str(task)))
+        dd=int(Task.objects.get(title=task).start_day)
+        dm=int(Task.objects.get(title=task).start_month)
+        dy=int(Task.objects.get(title=task).start_year)
+        ed=int(Task.objects.get(title=task).end_day)
+        em=int(Task.objects.get(title=task).end_month)
+        ey=int(Task.objects.get(title=task).end_year)
+        task_project.append(mk_gantt(str(task),dd,dm,dy,ed,em,ey))
     create_gantt(task_project)
     # print(gantt_tasks_list)
     # print(1)
