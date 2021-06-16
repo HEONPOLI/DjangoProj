@@ -6,14 +6,18 @@ Tasks -
 {% block content %}
 <div class="card">
     <div class="card-header">
-        <h1 class="text-center">ToDo App</h1>
+        <h1 class="text-center"><b>ToDo App</b></h1>
     </div>
     <div class="card-body">
+        <div>
+        <a href="{% url 'gantt_task' %}" class="btn btn-primary">GanttChart</a>
+        </div>
         <form method="post">
             {% csrf_token %}
-            <div class="input-group mb-3">
+            <div class="post-form my-3">   
                 <!-- {{task_form}} to display all -->
                 {{task_form.title}}
+                {{task_form.date}}
                 <!-- to display particular field-->
                 <button type="submit" class="btn btn-primary btn-lg">ADD</button>
             </div>
@@ -23,13 +27,13 @@ Tasks -
             {% for task in tasks %}
             <li class="list-group-item list-group-item-action">
                 {% if task.completed == True %}
-                <strike>{{task.title}} </strike>
+                <strike>{{task.title}}</strike>
                 {% else %}
                 {{task.title}}
                 {% endif %}
                 <div class="float-right">
-                    <a href="{% url "update_task" task.id %}" class="btn btn-sm btn-info">Update</a>
-                    <a href="{% url "delete_task" task.id %}" class="btn btn-sm btn-danger">Delete</a>
+                    <a href="{% url 'update_task' task.id %}" class="btn btn-sm btn-info">Update</a>
+                    <a href="{% url 'delete_task' task.id %}" class="btn btn-sm btn-danger">Delete</a>
                 </div>
             </li>
             {% endfor %}

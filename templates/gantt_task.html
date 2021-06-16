@@ -8,12 +8,12 @@ Gantt -
 <div class="card">
     <div class="card-header">
         <h1 class="text-center"><b>✔Gantt Chart✔</b></h1>
+        <a href="{% url 'index' %}" class="btn btn-primary">Back to list</a>
     </div>
     <div class="card-body">
         <img class="card-img" src="{% static 'Project_gantt.svg' %}">
             {% for task in tasks %}
             <li class="list-group-item list-group-item-action">
-                {{task.id}}
                 <b>{{task.title}}</b>
             </li>
             {% endfor %}

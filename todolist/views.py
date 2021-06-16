@@ -5,6 +5,7 @@ from .models import Task
 from .mkgantt import mk_gantt, create_gantt
 # Create your views here.
 
+
 def index(request):
     form = TaskForm()
     if request.method=="POST":
