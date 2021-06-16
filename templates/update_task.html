@@ -12,9 +12,19 @@ Update Task -
             {% csrf_token %}
             <div class="input-group mb-3">
                 <div class="input-group-text" data-toggle="tooltip" data-placement="bottom" title="Marked as completed">
+                    <h4>Completed?</h4>
                     {{task_edit_form.completed}}
                 </div>
                 {{task_edit_form.title}}
+                <div>
+                {{task_edit_form.start_day}}
+                {{task_edit_form.start_month}} 
+                {{task_edit_form.start_year}}
+                to
+                {{task_edit_form.end_day}}
+                {{task_edit_form.end_month}}
+                {{task_edit_form.end_year}}
+                </div>
                 <button type="submit" class="btn btn-lg btn-info">Update</button>
             </div>
         </form>

@@ -17,7 +17,12 @@ Tasks -
             <div class="post-form my-3">   
                 <!-- {{task_form}} to display all -->
                 {{task_form.title}}
-                {{task_form.date}}
+                <div class="row g-3">
+                    <div class="col-sm-7">
+                        <b>일정시작</b>{{task_form.start_day}} {{task_form.start_month}} {{task_form.start_year}}<br>
+                        <b>일정종료</b>{{task_form.end_day}} {{task_form.end_month}} {{task_form.end_year}}
+                    </div>
+                </div>
                 <!-- to display particular field-->
                 <button type="submit" class="btn btn-primary btn-lg">ADD</button>
             </div>
@@ -29,7 +34,8 @@ Tasks -
                 {% if task.completed == True %}
                 <strike>{{task.title}}</strike>
                 {% else %}
-                {{task.title}}
+                {{task.title}}  <b>{{task.start_year}}년 {{task.start_month}}월 {{task.start_day}}일</b> to 
+                <b>{{task.end_year}}년 {{task.end_month}}월 {{task.end_day}}일</b>
                 {% endif %}
                 <div class="float-right">
                     <a href="{% url 'update_task' task.id %}" class="btn btn-sm btn-info">Update</a>

@@ -19,6 +19,47 @@ class TaskForm(forms.ModelForm):
         required=False,
         widget=forms.widgets.CheckboxInput(attrs={"class": "form-check-input"}),
     )
-    startdate = forms.CharField(
-        widget=forms.DateTimeInput(format='%Y/%m/%d'),
+    start_day = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder":"day..",
+            }
+        )
     )
+    start_month = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder":"month..",
+            }
+        )
+    )
+    start_year = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder":"year..",
+            }
+        )
+    )
+    end_day = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder":"day..",
+            }
+        )
+    )
+    end_month = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder":"month..",
+            }
+        )
+    )
+    end_year = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder":"year..",
+            }
+        )
+    )
+
+    

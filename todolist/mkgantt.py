@@ -25,7 +25,7 @@ def create_gantt(task_project):
                         filename='./static/Project_gantt.svg', 
                         today=date(2021, 1, 27), 
                         start=date(2021,1, 20),
-                        end=date(2021, 4, 1)
+                        end=date(2021, 3, 1)
                         )
     # drawing = svg2rlg('./static/Project_gantt.svg')
     # renderPM.drawToFile(drawing,'./static/Project_gantt.png',fmt='PNG')
