@@ -6,11 +6,11 @@ Tasks -
 {% block content %}
 <div class="card">
     <div class="card-header">
-        <h1 class="text-center"><b>ToDo App</b></h1>
+        <h1 class="text-center"><b>TODO LIST</b></h1>
     </div>
     <div class="card-body">
         <div>
-        <a href="{% url 'gantt_task' %}" class="btn btn-primary">GanttChart</a>
+        <a href="{% url 'gantt_task' %}" class="btn btn-dark">GanttChart</a>
         </div>
         <form method="post">
             {% csrf_token %}
@@ -24,10 +24,10 @@ Tasks -
                     </div>
                 </div>
                 <!-- to display particular field-->
-                <button type="submit" class="btn btn-primary btn-lg">ADD</button>
+                <button type="submit" class="btn btn-dark btn-lg">ADD</button>
             </div>
         </form>
-        <h4 class="bg-warning text-light py-2 rounded text-center">My Tasks:</h4>
+        <h4 class="bg-dark text-light py-2 rounded text-center">My Tasks:</h4>
         <ul class="list-group">
             {% for task in tasks %}
             <li class="list-group-item list-group-item-action">
@@ -38,8 +38,8 @@ Tasks -
                 <b>{{task.end_year}}년 {{task.end_month}}월 {{task.end_day}}일</b>
                 {% endif %}
                 <div class="float-right">
-                    <a href="{% url 'update_task' task.id %}" class="btn btn-sm btn-info">Update</a>
-                    <a href="{% url 'delete_task' task.id %}" class="btn btn-sm btn-danger">Delete</a>
+                    <a href="{% url 'update_task' task.id %}" class="btn btn-dark btn-info">Update</a>
+                    <a href="{% url 'delete_task' task.id %}" class="btn btn-dark btn-danger">Delete</a>
                 </div>
             </li>
             {% endfor %}
